@@ -50,6 +50,8 @@ let chosenColor = DEFAULT;
 
 window.addEventListener('DOMContentLoaded', populate(16));
 
+root.addEventListener('mousemove', penTool);
+
 eight.addEventListener('click', () => clearGrid(8, 8));
 sixteen.addEventListener('click', () => clearGrid(16, 16));
 thirtyTwo.addEventListener('click', () => clearGrid(32, 32));
@@ -62,11 +64,10 @@ pickColor.addEventListener('click', () => {
 });
 
 
-
 /* Functions */
 
-function penTool(div) {
-  div.style.backgroundColor = chosenColor;
+function penTool(e) {
+  e.target.style.backgroundColor = chosenColor;
 }
 
 function populate(grids) {
@@ -77,7 +78,7 @@ function populate(grids) {
     newDiv.style.width = `${100 / grids}%`;
     newDiv.style.height = newDiv.style.width;
     root.appendChild(newDiv);
-    newDiv.addEventListener('mouseover', () => penTool(newDiv));
+    // newDiv.addEventListener('mouseenter', () => penTool(newDiv));
   }
 
   colors.forEach(color => {
