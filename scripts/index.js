@@ -50,8 +50,10 @@ let chosenColor = DEFAULT;
 
 window.addEventListener('DOMContentLoaded', populate(16));
 
+root.addEventListener('mouseover', penTool);
 root.addEventListener('mousemove', penTool);
-root.addEventListener('ontouchstart', penTool)
+root.addEventListener('touchstart', penTool);
+root.addEventListener('touchmove', penTool);
 
 eight.addEventListener('click', () => clearGrid(8, 8));
 sixteen.addEventListener('click', () => clearGrid(16, 16));
