@@ -1,0 +1,112 @@
+:root {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: inherit;
+}
+
+.screen-container {
+  background-color: slategray;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-picker {
+  border: 1px solid #000030;
+  border-radius: 10px;
+  height: 500px;
+  width: 500px;
+  display: none;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
+  padding: 80px 50px 50px 50px;
+}
+
+.color-div {
+  flex: 0 0 100px;
+}
+
+.color-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: aliceblue;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+#clear,
+#yellow,
+#orange,
+#green,
+#violet {
+  color: #000030;
+}
+
+.ui-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .7rem;
+}
+
+.btn {
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid #000030;
+  border-radius: 10px;
+  color: aliceblue
+}
+
+#root {
+  border: 1px solid #000030;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 500px) {
+  #root {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #root {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  #root {
+    width: 900px;
+    height: 900px;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  #root {
+    width: 1200px;
+    height: 1200px;
+  }
+}
