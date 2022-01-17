@@ -28,15 +28,12 @@
   flex-wrap: wrap;
   flex-direction: column;
   gap: 10px;
-  padding: 80px 50px 50px 50px;
-}
-
-.color-div {
-  flex: 0 0 100px;
+  padding: 2rem;
 }
 
 .color-div{
   display: flex;
+  flex: 0 0 4rem;
   justify-content: center;
   align-items: center;
   color: aliceblue;
@@ -72,7 +69,8 @@
   background-color: transparent;
   border: 1px solid #000030;
   border-radius: 10px;
-  color: aliceblue
+  color: aliceblue;
+  font-size: 1.2rem;
 }
 
 #root {
@@ -88,6 +86,12 @@
     width: 320px;
     height: 320px;
   }
+
+  .color-picker {
+    width: 320px;
+    height: 320px;
+    padding: 1rem;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -95,17 +99,54 @@
     width: 200px;
     height: 200px;
   }
+
+  .color-picker {
+    width: 200px;
+    height: 200px;
+    padding: .7rem;
+  }
+
+  .color-div {
+    flex: 0 0 1.3rem;
+    font-weight: 100;
+    font-size: .5rem;
+  }
+
+  .btn {
+    font-size: .5rem;
+  }
 }
 
 @media screen and (min-width: 1500px) {
   #root {
-    width: 900px;
-    height: 900px;
+    width: 700px;
+    height: 700px;
+  }
+
+  .color-picker {
+    width: 700px;
+    height: 700px;
+    padding: 3rem;
+  }
+
+  .color-div {
+    flex: 0 0 5rem;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+
+  .btn {
+    font-size: 2rem;
   }
 }
 
 @media screen and (min-width: 2000px) {
   #root {
+    width: 1200px;
+    height: 1200px;
+  }
+
+  .color-picker {
     width: 1200px;
     height: 1200px;
   }
