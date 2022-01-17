@@ -70,7 +70,6 @@ function penTool(div) {
 }
 
 function populate(grids) {
-  if (grids > 100) { grids = 100; alert() }
   for (let i = 1; i <= (grids * grids); i++) {
     let newDiv = document.createElement("div");
     newDiv.id = `grid-div-${i}`;
@@ -98,7 +97,6 @@ function clearGrid(grids, newGlobalGridValue) {
 }
 
 function chooseColor(color) {
-  console.log("chooseColor was called");
 
   switch (color.toUpperCase()) {
     case "RED":

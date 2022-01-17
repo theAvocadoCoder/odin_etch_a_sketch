@@ -54,7 +54,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
+}
+
+.ui-container > h1 {
+  color: aliceblue;
+  text-align: center;
 }
 
 .btn-container {
@@ -74,7 +79,7 @@
 }
 
 #root {
-  border: 1px solid #000030;
+  border: 2px solid #000030;
   width: 500px;
   height: 500px;
   display: flex;
