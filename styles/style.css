@@ -84,6 +84,7 @@
   height: 500px;
   display: flex;
   flex-wrap: wrap;
+  cursor: url("/assets/circle.svg") 10 10, pointer;
 }
 
 @media screen and (max-width: 500px) {
