@@ -75,7 +75,10 @@ sixtyFour.addEventListener("click", () => clearGrid(64));
 clearBtn.addEventListener("click", () =>
   clearGrid(globalGridValue, globalGridValue)
 );
-randomColorBtn.addEventListener("click", () => (chosenColor = randomColor()));
+randomColorBtn.addEventListener("click", () => {
+  chosenColor = randomColor();
+  colorPicker.value = chosenColor;
+});
 colorPicker.addEventListener("input", (e) => (chosenColor = e.target.value));
 
 /* Functions */
