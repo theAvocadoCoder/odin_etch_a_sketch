@@ -21,8 +21,6 @@ let penUp = true;
 
 let chosenColor = "#000";
 
-
-
 /* Event Listeners */
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -30,16 +28,18 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const draw = (e) => penTool(e.target);
 
-  root.addEventListener("click", () => {
-    gridDivs.forEach(div => {
-      if (penUp) {
-        div.addEventListener("mouseover", draw)
-      } else {
-        div.removeEventListener("mouseover", draw)
-      }
-    })
-    penUp = !penUp;
-  })
+  root.addEventListener("mousedown", (e) => {
+    penUp = false;
+    draw(e);
+  });
+  root.addEventListener("mouseup", () => {
+    penUp = true;
+  });
+  root.addEventListener("mouseover", (e) => {
+    if (!penUp) {
+      draw(e);
+    }
+  });
 });
 
 eight.addEventListener("click", () => clearGrid(8));
@@ -47,11 +47,11 @@ sixteen.addEventListener("click", () => clearGrid(16));
 thirtyTwo.addEventListener("click", () => clearGrid(32));
 sixtyFour.addEventListener("click", () => clearGrid(64));
 
-clearBtn.addEventListener("click", () => clearGrid(globalGridValue, globalGridValue));
-randomColorBtn.addEventListener("click", () => chosenColor = randomColor());
-colorPicker.addEventListener("input", (e) => chosenColor = e.target.value);
-
-
+clearBtn.addEventListener("click", () =>
+  clearGrid(globalGridValue, globalGridValue)
+);
+randomColorBtn.addEventListener("click", () => (chosenColor = randomColor()));
+colorPicker.addEventListener("input", (e) => (chosenColor = e.target.value));
 
 /* Functions */
 
@@ -60,7 +60,7 @@ function penTool(div) {
 }
 
 function populate(grids) {
-  for (let i = 1; i <= (grids * grids); i++) {
+  for (let i = 1; i <= grids * grids; i++) {
     let newDiv = document.createElement("div");
     newDiv.classList.add("grid-div");
     newDiv.id = `grid-div-${i}`;
@@ -79,7 +79,23 @@ function clearGrid(grids) {
 }
 
 function randomColor() {
-  const arr = ["0", "1", "2", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
+  const arr = [
+    "0",
+    "1",
+    "2",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+  ];
   let randomVal = () => Math.floor(Math.random() * arr.length);
   const hexVals = [];
   for (let i = 0; i < 6; i++) {
