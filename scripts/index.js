@@ -27,14 +27,12 @@ window.addEventListener("DOMContentLoaded", () => {
   populate(16);
 
   const draw = (e) => {
-    // console.log(e.target);
     penTool(e.target);
   };
 
   root.addEventListener("mousedown", (e) => {
     penUp = false;
     draw(e);
-    console.log(penUp);
   });
   root.addEventListener("touchstart", (e) => {
     penUp = false;
@@ -42,7 +40,6 @@ window.addEventListener("DOMContentLoaded", () => {
   });
   root.addEventListener("mouseup", () => {
     penUp = true;
-    console.log(penUp);
   });
   root.addEventListener("touchend", () => {
     penUp = true;
