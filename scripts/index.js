@@ -26,13 +26,25 @@ let chosenColor = "#000";
 window.addEventListener("DOMContentLoaded", () => {
   populate(16);
 
-  const draw = (e) => penTool(e.target);
+  const draw = (e) => {
+    // console.log(e.target);
+    penTool(e.target);
+  };
 
   root.addEventListener("mousedown", (e) => {
     penUp = false;
     draw(e);
+    console.log(penUp);
+  });
+  root.addEventListener("touchstart", (e) => {
+    penUp = false;
+    draw(e);
   });
   root.addEventListener("mouseup", () => {
+    penUp = true;
+    console.log(penUp);
+  });
+  root.addEventListener("touchend", () => {
     penUp = true;
   });
   root.addEventListener("mouseover", (e) => {
@@ -40,6 +52,22 @@ window.addEventListener("DOMContentLoaded", () => {
       draw(e);
     }
   });
+
+  root.addEventListener(
+    "touchmove",
+    (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const fakeEvent = {
+        target: document.elementFromPoint(touch.clientX, touch.clientY),
+      };
+      if (!penUp) {
+        draw(fakeEvent);
+      }
+    },
+    { passive: false }
+  );
+  root.addEventListener;
 });
 
 eight.addEventListener("click", () => clearGrid(8));
