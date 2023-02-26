@@ -58,7 +58,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const fakeEvent = {
         target: document.elementFromPoint(touch.clientX, touch.clientY),
       };
-      if (!penUp) {
+      if (!penUp && root.contains(fakeEvent.target)) {
         draw(fakeEvent);
       }
     },
